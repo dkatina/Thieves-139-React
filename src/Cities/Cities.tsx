@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './Cities.css'
 
 interface IProps {
     dylanCities: string[]
@@ -8,10 +9,9 @@ interface IProps {
 const Cities = ({dylanCities, sabita}: IProps) => {
 
   const [selectedIdx, setSelectedIdx] = useState(-1);
-
   return (
     <>
-        <h1>{sabita}</h1>
+      <h1 className="sabita">{sabita}</h1>
       <ul className="list-group">
         {dylanCities.map((city, idx) =>
           selectedIdx === idx ? (
