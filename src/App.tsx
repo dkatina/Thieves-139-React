@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Form from "./Form/Form";
+import PokemonForm from "./PokemonForm/PokemonForm";
 
 const App = () => {
   return (
     <div>
-      <Form/>
+      <PokemonForm/>
     </div>
   );
 };

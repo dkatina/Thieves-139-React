@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Exo 2", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-image: url('../assets/images/pokeball.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-container {
+    background-color: rgba(103, 103, 103, .5);
+    padding: 60px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: rgba(255, 255, 255, 0.7) 0px 1px 4px;
+}
+
+.pokemon-container h1 {
+    color: white;
+}
+
+.pokemon-container input {
+    padding: 16px 24px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    font-size: 22px;
+    margin-top: 20px;
+}
