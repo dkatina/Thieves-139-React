@@ -9,14 +9,11 @@
 
 body {
     height: 100vh;
-    background-image: url('../assets/images/pokeball.webp');
+    background-image: url('../../assets/images/pokeball.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .pokemon-container {
@@ -25,6 +22,8 @@ body {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: rgba(255, 255, 255, 0.7) 0px 1px 4px;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .pokemon-container h1 {
