@@ -15,8 +15,12 @@ import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { Link } from "react-router-dom";
+import { PokeContext } from "../../context/PokeContext";
 
 function Nav() {
+
+  const {favPoke} = React.useContext(PokeContext)
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -194,6 +198,15 @@ function Nav() {
                 Team
               </Button>
             </Link>
+            {favPoke.name !== '' &&
+              <Button
+              key={"Team"}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              {favPoke.name}
+            </Button>
+            }
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             {user.email ? (

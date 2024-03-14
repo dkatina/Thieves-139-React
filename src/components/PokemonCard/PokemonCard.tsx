@@ -1,6 +1,8 @@
 import Button from "@mui/material/Button";
 import { doc, setDoc } from "firebase/firestore";
 import { db, auth } from "../../firebase";
+import { useContext } from "react";
+import { PokeContext } from "../../context/PokeContext";
 
 interface IProps {
   pokemon: {
@@ -12,8 +14,10 @@ interface IProps {
   };
 }
 
-const PokemonCard = ({ pokemon: { id, name, img, abilities, type} }: IProps) => {
 
+const PokemonCard = ({ pokemon: { id, name, img, abilities, type} }: IProps) => {
+  
+  const {setFavPoke} = useContext(PokeContext)
   const catchPokemon = async () => {
     if (auth.currentUser) {
       await setDoc(doc(db, "users", auth.currentUser.uid, "team", type), {
@@ -24,6 +28,10 @@ const PokemonCard = ({ pokemon: { id, name, img, abilities, type} }: IProps) => 
       });
       alert(`Caught ${name}`)
     }
+  }
+
+  const favPokemon = () =>{
+    setFavPoke({name: name, img: img, ability: abilities[0]})
   }
 
   return (
@@ -52,6 +60,20 @@ const PokemonCard = ({ pokemon: { id, name, img, abilities, type} }: IProps) => 
             onClick={catchPokemon}
           >
             Catch
+          </Button>
+          <Button
+            sx={{
+              backgroundColor: "#4fc3f7",
+              ":hover": {
+                backgroundColor: "white",
+                color: "#4fc3f7",
+              },
+              width: "100%",
+            }}
+            variant="contained"
+            onClick={favPokemon}
+          >
+            Favorite
           </Button>
         </div>
       </div>
